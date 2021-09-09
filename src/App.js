@@ -59,7 +59,7 @@ class App extends Component {
   };
 
   render() {
-    const test1 = (
+    const nothingToShow = (
       <p className="font-bold text-3xl text-center pt-10">
         Nothing to show{" "}
         <span className="block text-lg">
@@ -67,13 +67,15 @@ class App extends Component {
         </span>{" "}
       </p>
     );
-    const test2 = (
-      <div className="grid grid-cols-3 gap-4">{this.state.items}</div>
+    const renderData = (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {this.state.items}
+      </div>
     );
 
     return (
-      <div className="grid grid-cols-10 text-gray-500">
-        <div className="col-span-2 pt-10 p-3 bg-gray-50">
+      <div className="grid grid-cols-1 md:grid-cols-10 text-gray-500">
+        <div className="md:col-span-2 pt-10 p-3 bg-gray-50">
           <div className="mb-5">
             <p className="mb-3 text-red-400 font-bold">
               You must sign in first ⚠
@@ -105,8 +107,8 @@ class App extends Component {
             </button>
           </form>
         </div>
-        <div className="col-span-8 p-5">
-          {this.state.items.length > 0 ? test2 : test1}
+        <div className="md:col-span-8 p-5">
+          {this.state.items.length > 0 ? renderData : nothingToShow}
         </div>
       </div>
     );
